@@ -46,11 +46,16 @@ class Usuario( models.Model ):
 
 
 class TipoVia(models.Model):
-    nombre = models.CharField(max_length=20)
+    nombre = models.CharField(
+        max_length=20, unique=True, blank=False, null=False)
+
+    def __str__(self):
+        return str(self.nombre)
 
 
 class Direccion(models.Model):
-    tipoVia = models.ForeignKey(TipoVia, on_delete=models.PROTECT)
+    tipoVia = models.ForeignKey(
+        TipoVia, on_delete=models.PROTECT)
     domicilio = models.CharField(max_length=200, blank=False)
     numero = models.CharField(max_length=2)
     piso = models.CharField(max_length=2)

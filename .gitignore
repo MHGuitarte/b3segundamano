@@ -16,3 +16,16 @@ b3segundamano/__pycache__/__init__.cpython-37.pyc
 b3segundamano/__pycache__/settings.cpython-37.pyc
 b3segundamano/__pycache__/__init__.cpython-37.pyc
 b3segundamano/__pycache__/settings.cpython-37.pyc
+usuarios/migrations/0001_initial.py
+usuarios/migrations/0002_auto_20200114_2229.py
+usuarios/migrations/0003_auto_20200114_2247.py
+usuarios/migrations/0004_auto_20200114_2306.py
+usuarios/migrations/0005_auto_20200114_2310.py
+usuarios/migrations/0006_auto_20200114_2311.py
+usuarios/migrations/__pycache__/0001_initial.cpython-37.pyc
+usuarios/migrations/__pycache__/0002_auto_20200114_2229.cpython-37.pyc
+usuarios/migrations/__pycache__/0003_auto_20200114_2247.cpython-37.pyc
+usuarios/migrations/__pycache__/0004_auto_20200114_2306.cpython-37.pyc
+usuarios/migrations/__pycache__/0005_auto_20200114_2310.cpython-37.pyc
+productos/migrations/__pycache__/0001_initial.cpython-37.pyc
+productos/migrations/0001_initial.py

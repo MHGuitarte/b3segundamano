@@ -10,7 +10,7 @@ class Categoria(models.Model):
 
 
 class ImagenProducto(models.Model):
-    imagen = models.ImageField()  # Esto hay que entenderlo bien
+    imagen = models.FilePathField()  # Esto hay que entenderlo bien
 
 
 class Articulo(models.Model):
