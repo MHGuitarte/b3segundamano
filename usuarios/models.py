@@ -45,17 +45,12 @@ class Usuario( models.Model ):
 # REVISIÓN 0.1
 
 
-class DatosPersonales(models.Model):
-    nombre = models.CharField(max_length=40, blank=False)
-    apellidos = models.CharField(max_length=60, blank=False)
-    documento = models.CharField(max_length=9, unique=True, blank=False)
-    telefono = models.CharField(max_length=13, unique=True, blank=True)
-    correo = models.EmailField(unique=True, blank=False)
-    direccion = models.ForeignKey(Direccion)
+class TipoVia(models.Model):
+    nombre = models.CharField(max_length=20)
 
 
 class Direccion(models.Model):
-    tipoVia = models.ForeignKey(TipoVia)
+    tipoVia = models.ForeignKey(TipoVia, on_delete=models.PROTECT)
     domicilio = models.CharField(max_length=200, blank=False)
     numero = models.CharField(max_length=2)
     piso = models.CharField(max_length=2)
@@ -66,5 +61,11 @@ class Direccion(models.Model):
     pais = models.CharField(max_length=20)
 
 
-class TipoVia(models.Model):
-    nombre = models.CharField()
+class DatosPersonales(models.Model):
+    nombre = models.CharField(max_length=40, blank=False)
+    apellidos = models.CharField(max_length=160, blank=False)
+    documento = models.CharField(max_length=9, unique=True, blank=False)
+    telefono = models.CharField(max_length=13, unique=True, blank=True)
+    correo = models.EmailField(unique=True, blank=False)
+    direccion = models.ForeignKey(Direccion, on_delete=models.CASCADE)
+    baja = models.BooleanField()
