@@ -1,7 +1,8 @@
 from django.db import models
 
-# Create your models here.
+# Modelos que no vamos a usar
 
+"""
 class TiposPremium( models.Model ):
     descripcion = models.CharField( max_length = 200 )
     precio = models.DecimalField( max_digits = 5, decimal_places = 2 )
@@ -38,3 +39,32 @@ class Usuario( models.Model ):
     valoraciones = models.ForeignKey( Comentario )
     correos = models.ForeignKey( Correo )
     domicilios = models.ForeignKey( Domicilio )
+
+"""
+
+# REVISIÓN 0.1
+
+
+class DatosPersonales(models.Model):
+    nombre = models.CharField(max_length=40, blank=False)
+    apellidos = models.CharField(max_length=60, blank=False)
+    documento = models.CharField(max_length=9, unique=True, blank=False)
+    telefono = models.CharField(max_length=13, unique=True, blank=True)
+    correo = models.EmailField(unique=True, blank=False)
+    direccion = models.ForeignKey(Direccion)
+
+
+class Direccion(models.Model):
+    tipoVia = models.ForeignKey(TipoVia)
+    domicilio = models.CharField(max_length=200, blank=False)
+    numero = models.CharField(max_length=2)
+    piso = models.CharField(max_length=2)
+    puerta = models.CharField(max_length=2)
+    codigoPostal = models.CharField(max_length=5)
+    ciudad = models.CharField(max_length=80)
+    provincia = models.CharField(max_length=30)
+    pais = models.CharField(max_length=20)
+
+
+class TipoVia(models.Model):
+    nombre = models.CharField()
