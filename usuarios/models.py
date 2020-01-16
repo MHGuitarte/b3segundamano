@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Modelos que no vamos a usar
 
@@ -67,6 +68,7 @@ class Direccion(models.Model):
 
 
 class DatosPersonales(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=40, blank=False)
     apellidos = models.CharField(max_length=160, blank=False)
     documento = models.CharField(max_length=9, unique=True, blank=False)

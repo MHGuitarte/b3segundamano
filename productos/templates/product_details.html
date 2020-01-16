@@ -1,0 +1,65 @@
+{% extends 'inicio/main_template.html' %}
+{% load static %}
+
+{% block categories %}
+<!--EMPTY BLOCK-->
+{% endblock categories %}
+
+{% block body %}
+<div class="w3-display-container">
+    <div class="w3-twothird w3-margin">
+        <div class="w3-row-padding carousel">
+            {% for image in product.imgs %}
+            <img src="{% static 'resources/'|add:image %}" alt="Imagen de producto" class="details-carousel w3-animate-opacity">
+            {% endfor %}
+
+            <button class="w3-button w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</button>
+
+        </div>
+
+        <div class="w3-row-padding product-details">
+            <div class="w3-row">
+                <h2 class="w3-half">{{product.name}}</h2>
+                <h2 class="w3-half w3-center">{{product.price}}</h2>
+            </div>
+            <div class="w3-row">
+                <h4 class="w3-half">{{product.username}}</h4>
+                <h4 class="w3-half w3-center">
+                    {% for tag in product.tags %}
+                    <span class="w3-border w3-round w3-margin-left w3-padding-small w3-small">{{tag}} </span>
+                    {% endfor %}
+                </h4>
+            </div>
+        </div>
+
+        <div class="w3-row-padding product-description">
+            {{product.description}}
+        </div>
+
+    </div>
+
+
+    <!--Banner lateral externo-->
+
+    <div class="w3-rest w3-margin-left w3-margin-bottom" style="padding-left:10%; padding-right:10%;"
+        id="details-right-banner">
+
+        {% if userLogged %}
+        <button class="w3-button w3-row-padding w3-margin-left w3-margin-bottom  w3-margin-top"
+            style="height:10%; min-width:100%;">Comprar Ahora</button>
+        {% endif %}
+
+        <button class="w3-button w3-row-padding w3-margin-left w3-margin-bottom"
+            style="height:5%; min-width:100%;">Añadir al carrito</button>
+        {% if rightBanner %}
+        <img class="w3-mobile w3-row w3-margin-left" style="width: 100%;"
+            src="{% static 'resources/vertical-banner.jpg' %}" alt="Banner de proveedor externo"
+            id="right-banner">
+        {% endif %}
+    </div>
+
+
+
+</div>
+{% endblock body %}

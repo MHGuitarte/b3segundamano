@@ -1,0 +1,87 @@
+{% load static %}
+
+<div class="w3-bar" id="header">
+    <button id="menuBtn" class="w3-mobile w3-hide-small"><i alt="menu desplegable" class="fas fa-bars w3-xlarge"
+            id="menuBtn"></i></button>
+    <a href="#" class=" w3-mobile w3-margin-bottom"><img src="{% static 'resources/logo.jpg' %}"
+            alt="logo pagina" class="logo w3-mobile w3-image w3-circle w3-tiny w3-center" id="logo-link"></a>
+
+    <form action="" class="w3-mobile w3-show-inline-block w3-medium w3-margin-bottom w3-center" id="search-form">
+        <button type="submit" class="w3-button" id="search-button"><i class="fas fa-search"></i></button>
+        <input type="text" name="search" class="w3-large" id="search-bar">
+    </form>
+
+    <!--Botón de login y register-->
+    <!--TODO: Esto no extiende más allá de lo que se le incluye-->
+    <!--TODO: Se pasa a depender de un atributo ligado a un objeto usuario-->
+    {% if userInfo %}
+    <!--TODO: Insertar formato para info de usuario (log out e imagen)-->
+    {% else %}
+    <div class="w3-show-inline-block w3-right w3-mobile" id="access-buttons-container">
+        <div class="w3-col l3">
+            <div class="w3-row access-row access-row-button">
+                <button class="w3-button w3-round-xlarge w3-large w3-hover-white" id="register"
+                    onclick="openAccessModal(false)">Registrarse</button>
+            </div>
+            <div class="w3-row access-row access-row-button">
+                <button class="w3-button w3-round-xlarge w3-large w3-hover-white" id="login"
+                    onclick="openAccessModal(true)">Acceder</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-modal" id="accessModal">
+        <div class="w3-modal-content w3-animate-top" id="access-modal">
+            <div class="w3-bar w3-red w3-mobile">
+                <button class="w3-button w3-white tab-button" id="tab-register-button"
+                    onclick="openTab('register-tab', 'tab-register-button')">Registro</button>
+                <button class="w3-button w3-white tab-button" id="tab-login-button"
+                    onclick="openTab('login-tab', 'tab-login-button')">Acceso</button>
+                <button class="w3-right w3-button w3-circle" id="closeModalButton" onclick="closeModal()">X</button>
+            </div>
+            <div id="register-tab" class="tab-content w3-container" style="display: none;">
+
+                <h1 class="w3-center">Registrar</h1>
+                <!-- FORMULARIO DE REGISTRO -->
+                <form action="" class="w3-center">
+                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
+                        name="Nombre" placeholder="Nombre" id="register-name-input">
+
+                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
+                        name="Apellidos" placeholder="Apellidos" id="register-name-input">
+
+                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round" name="mail"
+                        placeholder="Correo electrónico" id="register-mail-input">
+
+                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
+                        name="Nombre de Usuario" placeholder="Nombre de Usuario" id="register-username-input">
+
+                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
+                        name="Contraseña" placeholder="Contraseña" id="register-pass-input">
+
+                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
+                        name="Repetir Contraseña" placeholder="Repetir Contraseña" id="register-repeat-pass-input">
+
+                    <input type="submit" class="w3-row w3-mobile w3-button w3-round-xlarge w3-xlarge"
+                        value="Registrarse" name="Registrarse" id="register-submit-button">
+                </form>
+
+            </div>
+            <div id="login-tab" class="tab-content w3-container" style="display: none;">
+                <h1 class="w3-center">Acceder a B&sup3;</h1>
+
+                <form action="" class="w3-center">
+                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
+                        name="Usuario" placeholder="Usuario" id="login-username-input">
+
+                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
+                        name="Contraseña" placeholder="Contraseña" id="login-pass-input">
+
+                    <input type="submit" class="w3-row w3-mobile w3-button w3-round-xlarge w3-xlarge" value="Acceder"
+                        name="Acceder" id="login-submit-button">
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>

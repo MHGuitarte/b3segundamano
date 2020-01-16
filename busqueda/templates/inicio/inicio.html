@@ -1,0 +1,38 @@
+{% extends 'inicio/main_template.html' %}
+{% load static %}
+
+<!--LOS BANNERS CARGAN MEDIANTE UNA PROPIEDAD PASADA EN VIEWS.PY
+    (no se si esto realmente es la mejor solución, pero probablemente
+    haya algo mejor)-->
+
+{% block body %}
+<div class="w3-container" id="contents">
+    <div class="main-contents">
+        <!--Banner superior-->
+        {% if upperBanner %}
+        <img class="w3-margin-top w3-margin-bottom w3-image w3-mobile" src="{% static 'resources/banner.jpg' %}"
+            alt="Banner propio de la página" id="upper-banner">
+        {% endif %}
+
+        <!--Grid donde se muestran 4 productos-->
+        <div class="product-grid w3-container w3-threequarter">
+            {% for product in products %}
+
+            <div class="w3-col w3-half">
+                {% include "productos/product_overview.html" with product_id=product.name product_img="resources/"|add:product.img product_name=product.name product_price=300 product_vendor="Mi amigo" %}
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+    <!--Banner lateral externo-->
+    {% if rightBanner %}
+    <div class="w3-rest w3-padding w3-margin-left">
+        <img class="w3-mobile w3-image w3-" src="{% static 'resources/vertical-banner.jpg' %}" alt="Banner de proveedor externo"
+            id="right-banner">
+    </div>
+    {% endif %}
+
+
+</div>
+{% endblock body %}

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'busqueda.apps.BusquedaConfig',
     'usuarios.apps.UsuariosConfig',
     'productos.apps.ProductosConfig',
     'django.contrib.admin',
@@ -120,3 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'coffeecode.mardecadiz@gmail.com'
+EMAIL_HOST_PASSWORD = '_221#CC20@MdC19_'
+EMAIL_PORT = 587
+ACCOUNT_EMAIL_VERIFICATION = 'none'

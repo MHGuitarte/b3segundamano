@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+:root {
+    --main-color: #ff02bc;
+    --secondary-color: #ff01bb;
+    --border-color: thistle;
+    --font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', Helvetica, Arial, sans-serif, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvatica Neue';
+    /*Se añade una extensa lista de fuentes para generar compatibilidades.
+    No obstante, Helvetica debería bastar para todos los navegadores*/
+    --default-fontsize: 12;
+    --no-border: 0px solid transparent;
+    --footer-title-size: 18:
+}
+
+html,
+body {
+    font-family: var(--font-family) !important;
+    font-size: var(--default-fontsize);
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    outline: 0;
+}
+
+#header {
+    background-color: var(--main-color);
+}
+
+#menuBtn {
+    background-color: var(--main-color);
+    color: white;
+    border: var(--no-border);
+}
+
+#menuBtn:hover {
+    cursor: pointer;
+    text-shadow: 1px 1px 3px white;
+}
+
+#logo-link {
+    margin: 0.5%;
+    width: 5%;
+    height: auto;
+}
+
+#search-form {
+    margin: 0 auto;
+    white-space: nowrap;
+    background-color: white;
+    border-radius: 20px;
+}
+
+#search-bar {
+    border-radius: 20px;
+    min-width: 70ch;
+    border: var(--no-border);
+}
+
+#search-button {
+    border-radius: 20px;
+    border: var(--no-border);
+}
+
+#access-buttons-container {
+    margin: 0.7% 1%;
+}
+
+.access-row {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.access-row-button {
+    padding: 1px !important;
+}
+
+#login,
+#register {
+    text-align: center;
+    width: 12ch;
+    background-color: gainsboro;
+}
+
+/*LOGIN REGSITER MODAL*/
+
+#access-modal {
+    width: 30%;
+    background-color: var(--border-color);
+}
+
+#tab-login-button,
+#tab-register-button {
+    border-color: var(--main-color) !important;
+}
+
+#border-primary {
+    border-color: var(--main-color) !important;
+}
+
+#closeModalButton {
+    margin: 0.5ch;
+    background-color: red;
+    color: white;
+}
+
+#closeModalButton:hover {
+    background-color: white;
+    color: red;
+}
+
+#register-name-input,
+#register-surname-input,
+#register-mail-input,
+#register-username-input,
+#register-pass-input,
+#register-repeat-pass-input,
+#login-username-input,
+#login-pass-input {
+    width: 50%;
+    display: inline-block;
+    justify-items: center;
+    margin: 1ch 0;
+}
+
+#register-submit-button,
+#login-submit-button {
+    width: 50%;
+    display: inline-block;
+    justify-items: center;
+    background-color: green;
+}
+
+#register-submit-button:hover,
+#login-submit-button:hover {
+    background-color: var(--main-color) !important;
+}
+
+
+/*CATEGORÍAS*/
+
+#navigation {
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 1% auto;
+    min-height: 10%;
+    text-align: center;
+    padding: 0px 5%;
+}
+
+.nav-arrow {
+    display: inline-block;
+    border: 1px solid var(--border-color);
+    background-color: var(--border-color);
+    color: white;
+}
+
+#left-arrow {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#right-arrow {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.nav-arrow:hover {
+    color: black;
+}
+
+.categories {
+    display: inline-block;
+    border: 5px solid var(--border-color);
+    overflow-x: scroll;
+    white-space: nowrap;
+    overflow: hidden;
+    /*Esto se usará cuando demos funcionalidad a las flechas*/
+
+}
+
+.category-link {
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    height: 10%;
+    width: 10%;
+    display: inline-block;
+}
+
+.category-img {
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+    background-color: var(--border-color);
+}
+
+/*CUERPO*/
+
+.product-grid {
+    margin-bottom: 2ch !important;
+    border: 2px solid var(--border-color);
+    border-radius: 100px;
+    padding: 1% 1%;
+}
+
+.product {
+    border-radius: 10px;
+    margin: 10% 10%;
+    display: inline-block;
+    width: 60%;
+    height: max-content !important;
+    border: 2px solid var(--secondary-color);
+    padding: 1%;
+    text-align: center;
+}
+
+.product:hover {
+    border-color: black;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.product>img {
+    width: 80%;
+    height: auto;
+    align-self: center;
+}
+
+.product-cart-button {
+    margin-top: 0.3ch;
+}
+
+.product-cart-button:hover {
+    background-color: green;
+}
+
+button[added=true]:hover {
+    color: black !important;
+    background-color: red;
+}
+
+/*FOOTER*/
+
+#footer {
+    top: 60px;
+    position: -webkit-sticky !important;
+    height: min-content;
+    bottom: 0;
+    padding-top: 1%;
+    clear: both;
+    width: 100%;
+    background-color: var(--main-color);
+}
+
+.footer-list>li {
+    list-style: none;
+    margin: 1ch 0;
+}
+
+.footer-list>li>h6 {
+    font-size: var(--footer-title-size);
+    font-weight: bold;
+}
+
+.footer-list>li>a {
+    color: white;
+    text-decoration: none;
+}
+
+.social-link {
+    font-size: var(--footer-title-size);
+    color: white;
+    margin: 1%;
+}
+
+#footer a:hover {
+    text-shadow: 0px 0px 10px white;
+}
+
+#footer hr {
+    margin: 0 20%;
+}
+
+#copyright {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 1270px) {
+    #search-bar {
+        min-width: 60ch;
+    }
+
+    #register-name-input,
+    #register-surname-input,
+    #register-mail-input,
+    #register-username-input,
+    #register-pass-input,
+    #register-repeat-pass-input,
+    #login-username-input,
+    #login-pass-input {
+        width: 70%;
+        display: inline-block;
+        justify-items: center;
+        margin: 1ch 0;
+    }
+
+    #register-submit-button,
+    #login-submit-button {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: var(--default-fontsize) !important;
+        text-align: center;
+    }
+
+    .product {
+        width: 80%;
+    }
+
+    .product>img {
+        width: 90%;
+    }
+
+
+}
+
+@media only screen and (max-width: 900px) {
+
+    #header {
+        padding: 0 2%;
+    }
+
+    #menuBtn {
+        padding: 1%;
+        margin: auto;
+        margin-bottom: 2%;
+    }
+
+    #search-button {
+        float: left;
+    }
+
+    #search-bar {
+        min-width: 20ch;
+    }
+
+    #logo-link {
+        margin: 0 auto;
+        padding: 1%;
+        width: 20% !important;
+        height: auto;
+    }
+
+    #login,
+    #register {
+        min-width: 100%;
+    }
+
+    #closeModalButton {
+        background-color: red;
+    }
+
+    .product {
+        width: 80%;
+    }
+
+    .product>img {
+        width: 80%;
+    }
+
+}
