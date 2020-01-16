@@ -3,7 +3,8 @@ from .models import *
 
 # Register your models here.
 
-
+#TODO: EL MODELO DE DATOS PERSONALES PARA EL ADMIN HAY QUE TOQUETEARLO UN POCO
+    #IDEAS: añadir dirección y usuario desde datosPersonales
 class PersonalesAdmin(admin.StackedInline):
     model = DatosPersonales
     extra = 2

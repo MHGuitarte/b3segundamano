@@ -59,20 +59,25 @@ class Direccion(models.Model):
         TipoVia, on_delete=models.PROTECT)
     domicilio = models.CharField(max_length=200, blank=False)
     numero = models.CharField(max_length=2)
-    piso = models.CharField(max_length=2)
-    puerta = models.CharField(max_length=2)
+    piso = models.CharField(max_length=2, blank=True)
+    puerta = models.CharField(max_length=2, blank=True)
     codigoPostal = models.CharField(max_length=5)
     ciudad = models.CharField(max_length=80)
     provincia = models.CharField(max_length=30)
     pais = models.CharField(max_length=20)
 
+    def __str__(self):
+        simpleDirection = "{tipo} {domicilio}, {numero}".format(
+            tipo=self.tipoVia, domicilio=self.domicilio, numero=self.numero)
+        return simpleDirection
+
 
 class DatosPersonales(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    nombre = models.CharField(max_length=40, blank=False)
-    apellidos = models.CharField(max_length=160, blank=False)
     documento = models.CharField(max_length=9, unique=True, blank=False)
     telefono = models.CharField(max_length=13, unique=True, blank=True)
-    correo = models.EmailField(unique=True, blank=False)
     direccion = models.ForeignKey(Direccion, on_delete=models.CASCADE)
     baja = models.BooleanField()
+
+    def __str__(self):
+        return str('({doc}) -> {user}'.format(doc=self.documento, user=self.usuario.username))

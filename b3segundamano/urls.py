@@ -19,6 +19,5 @@ from busqueda.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index', index),
-    path('mail', polla),
+    path('', index),
 ]

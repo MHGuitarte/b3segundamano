@@ -1,4 +1,4 @@
-{% extends 'inicio/main_template.html' %}
+{% extends 'main_template.html' %}
 {% load static %}
 
 <!--LOS BANNERS CARGAN MEDIANTE UNA PROPIEDAD PASADA EN VIEWS.PY
@@ -22,14 +22,18 @@
                 {% include "productos/product_overview.html" with product_id=product.name product_img="resources/"|add:product.img product_name=product.name product_price=300 product_vendor="Mi amigo" %}
             </div>
 
+            {% empty %}
+
+            <h3 style="color: var(--main-color);">Lo sentimos, ocurrió un error durante la carga de productos</h3>
+
             {% endfor %}
         </div>
     </div>
     <!--Banner lateral externo-->
     {% if rightBanner %}
     <div class="w3-rest w3-padding w3-margin-left">
-        <img class="w3-mobile w3-image w3-" src="{% static 'resources/vertical-banner.jpg' %}" alt="Banner de proveedor externo"
-            id="right-banner">
+        <img class="w3-mobile w3-image w3-" src="{% static 'resources/vertical-banner.jpg' %}"
+            alt="Banner de proveedor externo" id="right-banner">
     </div>
     {% endif %}
 
