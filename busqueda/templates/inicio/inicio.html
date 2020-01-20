@@ -19,7 +19,7 @@
             {% for product in products %}
 
             <div class="w3-col w3-half">
-                {% include "productos/product_overview.html" with product_id=product.name product_img="resources/"|add:product.img product_name=product.name product_price=300 product_vendor="Mi amigo" %}
+                {% include "productos/product_overview.html" with product_id=product.id product_img=product.img.url product_title=product.title product_name=product.name product_price=product.price product_vendor=product.vendor product_info=product.info %}
             </div>
 
             {% empty %}

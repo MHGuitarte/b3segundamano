@@ -14,45 +14,22 @@
                         {% else %}
                         <!--AQUÍ IRÍA ALGO ALTERNATIVO A LAS CATEGORÍAS SI ESTAS, POR LO QUE SEA, NO CARGAN-->
                         <!--Aquí se incluyen las categorías-->
-                        <a href="algun sitio" class="category-link"><img src="{% static 'resources/category-bag.png' %}"
+                        <a href="category?id=Electrónica" class="category-link"><img
+                                        src="{% static 'resources/electronica.png' %}" alt="soy una categoria"
+                                        class="category-img"></a>
+                        <a href="category?id=Móviles" class="category-link"><img
+                                        src="{% static 'resources/moviles.png' %}" alt="soy una categoria"
+                                        class="category-img"></a>
+                        <a href="category?id=Consolas" class="category-link"><img
+                                        src="{% static 'resources/consolas.png' %}" alt="soy una categoria"
+                                        class="category-img"></a>
+                        <a href="category?id=Motor" class="category-link"><img src="{% static 'resources/motor.png' %}"
                                         alt="soy una categoria" class="category-img"></a>
-                        <a href="algun sitio" class="category-link"><img
-                                        src="{% static 'resources/category-watch.png' %}" alt="soy una categoria"
+                        <a href="category?id=Motos" class="category-link"><img src="{% static 'resources/motos.png' %}"
+                                        alt="soy una categoria" class="category-img"></a>
+                        <a href="category?id=Coches" class="category-link"><img
+                                        src="{% static 'resources/coches.png' %}" alt="soy una categoria"
                                         class="category-img"></a>
-                        <a href="algun sitio" class="category-link"><img
-                                        src="{% static 'resources/category-shoe.png' %}" alt="soy una categoria"
-                                        class="category-img"></a>
-                        <a href="algun sitio" class="category-link"><img
-                                        src="{% static 'resources/category-laptop.png' %}" alt="soy una categoria"
-                                        class="category-img"></a>
-
-                        {% if moreCategories == "true" %}
-                        <!--A PARTIR DE AQUÍ, COMPROBAMOS QUE FUNCIONE EL SCROLL HORIZONTAL-->
-                        <a href="algun sitio" class="category-link"><img
-                                        src="{% static 'resources/category-laptop.png' %}" alt="soy una categoria"
-                                        class="category-img"></a>
-                        <a href="algun sitio" class="category-link"><img
-                                        src="{% static 'resources/category-laptop.png' %}" alt="soy una categoria"
-                                        class="category-img"></a>
-                        <a href="algun sitio" class="category-link"><img
-                                        src="{% static 'resources/category-laptop.png' %}" alt="soy una categoria"
-                                        class="category-img"></a>
-                        <a href="algun sitio" class="category-link"><img
-                                        src="{% static 'resources/category-laptop.png' %}" alt="soy una categoria"
-                                        class="category-img"></a>
-                        <a href="algun sitio" class="category-link"><img
-                                        src="{% static 'resources/category-laptop.png' %}" alt="soy una categoria"
-                                        class="category-img"></a>
-                        <a href="algun sitio" class="category-link"><img
-                                        src="{% static 'resources/category-laptop.png' %}" alt="soy una categoria"
-                                        class="category-img"></a>
-                        <a href="algun sitio" class="category-link"><img
-                                        src="{% static 'resources/category-laptop.png' %}" alt="soy una categoria"
-                                        class="category-img"></a>
-                        <a href="algun sitio" class="category-link"><img
-                                        src="{% static 'resources/category-laptop.png' %}" alt="soy una categoria"
-                                        class="category-img"></a>
-                        {% endif %}
                         {% endif %}
         </div>
         <button class="nav-arrow" id="right-arrow" onclick="right()">

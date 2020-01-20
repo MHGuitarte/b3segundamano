@@ -3,12 +3,13 @@
 <div class="w3-bar" id="header">
     <button id="menuBtn" class="w3-mobile w3-hide-small"><i alt="menu desplegable" class="fas fa-bars w3-xlarge"
             id="menuBtn"></i></button>
-    <a href="#" class=" w3-mobile w3-margin-bottom"><img src="{% static 'resources/logo.jpg' %}"
-            alt="logo pagina" class="logo w3-mobile w3-image w3-circle w3-tiny w3-center" id="logo-link"></a>
+    <a href="/" class=" w3-mobile w3-margin-bottom"><img src="{% static 'resources/logo.jpg' %}" alt="logo pagina"
+            class="logo w3-mobile w3-image w3-circle w3-tiny w3-center" id="logo-link"></a>
 
-    <form action="" class="w3-mobile w3-show-inline-block w3-medium w3-margin-bottom w3-center" id="search-form">
+    <form action="search" method="get" class="w3-mobile w3-show-inline-block w3-medium w3-margin-bottom w3-center"
+        id="search-form">
         <button type="submit" class="w3-button" id="search-button"><i class="fas fa-search"></i></button>
-        <input type="text" name="search" class="w3-large" id="search-bar">
+        <input type="text" name="search" class="w3-large" id="search-bar" placeholder="Introduce tu búsqueda...">
     </form>
 
     <!--Botón de login y register-->

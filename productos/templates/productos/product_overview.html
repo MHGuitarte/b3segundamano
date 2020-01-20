@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="product" id="{{ product_id }}">
+    <img src="{{ product_img }}" alt="Soy una imagen del producto">
+    <h3 class="product-name">{{product_name}}</h3>
+    <h4 class="product-price">{{product_price}}€</h4>
+    <h4 class="product-vendor">{{product_vendor}}</h4>
+
+    <div class="w3-row" id="overview-bottombar">
+        <div class="tooltip w3-left w3-margin-left w3-border w3-padding w3-small">
+            Ver más
+            <div class="right">
+                <img src="{{ product_img }}" />
+                <div class="text-content">
+                    <h2>{{product_title}}</h2>
+                    <p>{{product_info}}</p>
+                </div>
+                <i></i>
+            </div>
+        </div>
+
+        <button class="w3-right w3-xlarge w3-circle w3-right-align product-cart-button"
+            onclick="changeProductCardOverview(this)">
+            <i class="fas fa-cart-plus"></i>
+        </button>
+    </div>
+
+</div>

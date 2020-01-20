@@ -45,7 +45,6 @@ class Usuario( models.Model ):
 
 # REVISIÓN 0.1
 
-
 class TipoVia(models.Model):
     nombre = models.CharField(
         max_length=20, unique=True, blank=False, null=False)
