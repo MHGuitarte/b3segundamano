@@ -18,9 +18,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from busqueda.views import *
+from usuarios.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('busqueda.urls')),
+    path('register', register, name='register'),
+    path('login', log_in, name='login'),
+    path('logout', log_out, name='logout')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

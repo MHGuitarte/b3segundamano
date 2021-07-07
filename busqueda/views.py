@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from productos.models import *
-from productos.models import *
+from django.contrib import messages
 
 # Create your views here.
 
@@ -12,7 +12,6 @@ def index(request):
         art = Articulo.randomSinVender()
         img = art.imagenproducto_set.first()
         vendedor = art.vendedor.usuario.username
-
         titulo = art.titulo
 
         if len(titulo) > 16:
@@ -31,7 +30,7 @@ def category(request):
     context = {'upperBanner': True, 'rightBanner': True, "products": []}
 
     filterText = request.GET.get('id', False)
-
+    print(request.user)
     arts = Articulo.objects.filter(categorias__nombre__contains=filterText)
 
     for art in arts:

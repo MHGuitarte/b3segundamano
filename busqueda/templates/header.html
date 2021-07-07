@@ -12,11 +12,23 @@
         <input type="text" name="search" class="w3-large" id="search-bar" placeholder="Introduce tu búsqueda...">
     </form>
 
+    {% if messages %}
+    <script>
+        window.alert('TE EQUIVOQUIASTE');
+    </script>
+    {% endif %}
+
     <!--Botón de login y register-->
-    <!--TODO: Esto no extiende más allá de lo que se le incluye-->
-    <!--TODO: Se pasa a depender de un atributo ligado a un objeto usuario-->
-    {% if userInfo %}
-    <!--TODO: Insertar formato para info de usuario (log out e imagen)-->
+    {% if request.user.username != '' %}
+
+    {{request.user.username}}
+    <a href="user" class="w3-mobile w3-margin-bottom w3-right-align"><img src="{% static 'resources/logo.jpg' %}"
+            alt="logo pagina" class="logo w3-mobile w3-image w3-circle w3-tiny w3-center" id="logo-link"></a>
+
+    <a href="logout" class="w3-mobile w3-margin-bottom">
+        <button class="w3-button w3-round-xlarge w3-medium w3-hover-white" id="logout">Salir</button>
+    </a>
+
     {% else %}
     <div class="w3-show-inline-block w3-right w3-mobile" id="access-buttons-container">
         <div class="w3-col l3">
@@ -30,7 +42,7 @@
             </div>
         </div>
     </div>
-
+    {% endif %}
     <div class="w3-modal" id="accessModal">
         <div class="w3-modal-content w3-animate-top" id="access-modal">
             <div class="w3-bar w3-red w3-mobile">
@@ -44,24 +56,32 @@
 
                 <h1 class="w3-center">Registrar</h1>
                 <!-- FORMULARIO DE REGISTRO -->
-                <form action="" class="w3-center">
-                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
-                        name="Nombre" placeholder="Nombre" id="register-name-input">
+                <form action="register" class="w3-center">
+                    {% csrf_token %}
+
+                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round" name="name"
+                        placeholder="Nombre" id="register-name-input">
 
                     <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
-                        name="Apellidos" placeholder="Apellidos" id="register-name-input">
+                        name="surname" placeholder="Apellidos" id="register-name-input">
 
                     <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round" name="mail"
                         placeholder="Correo electrónico" id="register-mail-input">
 
                     <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
-                        name="Nombre de Usuario" placeholder="Nombre de Usuario" id="register-username-input">
+                        name="document" placeholder="Doc. Identificación" id="register-doc-input">
+
+                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round" name="tlf"
+                        placeholder="Teléfono" id="register-tlf-input">
 
                     <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
-                        name="Contraseña" placeholder="Contraseña" id="register-pass-input">
+                        name="username" placeholder="Nombre de Usuario" id="register-username-input">
 
-                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
-                        name="Repetir Contraseña" placeholder="Repetir Contraseña" id="register-repeat-pass-input">
+                    <input type="password" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
+                        name="pass" placeholder="Contraseña" id="register-pass-input">
+
+                    <input type="password" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
+                        name="repeatPass" placeholder="Repetir Contraseña" id="register-repeat-pass-input">
 
                     <input type="submit" class="w3-row w3-mobile w3-button w3-round-xlarge w3-xlarge"
                         value="Registrarse" name="Registrarse" id="register-submit-button">
@@ -71,12 +91,13 @@
             <div id="login-tab" class="tab-content w3-container" style="display: none;">
                 <h1 class="w3-center">Acceder a B&sup3;</h1>
 
-                <form action="" class="w3-center">
+                <form action="login" method="POST" class="w3-center">
+                    {% csrf_token %}
                     <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
-                        name="Usuario" placeholder="Usuario" id="login-username-input">
+                        name="username" placeholder="Usuario" id="login-username-input">
 
-                    <input type="text" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
-                        name="Contraseña" placeholder="Contraseña" id="login-pass-input">
+                    <input type="password" class="w3-row w3-mobile w3-input w3-animate-input w3-border w3-round"
+                        name="pass" placeholder="Contraseña" id="login-pass-input">
 
                     <input type="submit" class="w3-row w3-mobile w3-button w3-round-xlarge w3-xlarge" value="Acceder"
                         name="Acceder" id="login-submit-button">
@@ -84,5 +105,4 @@
             </div>
         </div>
     </div>
-    {% endif %}
 </div>
